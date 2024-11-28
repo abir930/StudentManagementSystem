@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
  * Teacher Login GUI Application
  * @author ASUS
  */
-public class Teacher_login extends javax.swing.JFrame {
+public class TeacherLogin extends javax.swing.JFrame {
 
     // Simulated database of teacher usernames and passwords
     private HashMap<String, String> teacherDatabase;
@@ -15,7 +15,7 @@ public class Teacher_login extends javax.swing.JFrame {
     /**
      * Creates new form Teacher_login
      */
-    public Teacher_login() {
+    public TeacherLogin() {
         initComponents();
 
         // Initialize teacher database
@@ -150,20 +150,20 @@ public class Teacher_login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Teacher_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Teacher_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Teacher_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Teacher_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Teacher_login().setVisible(true);
+                new TeacherLogin().setVisible(true);
             }
         });
     }
