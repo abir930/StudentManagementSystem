@@ -5,6 +5,7 @@
  */
 package Login;
 
+import Home.Admin_Home;
 import javax.swing.JOptionPane;
 
 /**
@@ -190,6 +191,8 @@ public class Admin_login extends javax.swing.JFrame {
 
         // You can now proceed to open the Admin Home Page or any other action you need
         // Example: new AdminHomePage().setVisible(true);
+          Admin_Home adminHome = new Admin_Home();  // Create an instance of Admin_Home class
+        adminHome.setVisible(true);
 
         // Close the login window (if needed)
         this.dispose();  // Close the current login window
