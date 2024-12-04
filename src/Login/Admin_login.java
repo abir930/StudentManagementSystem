@@ -5,6 +5,8 @@
  */
 package Login;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -83,6 +85,11 @@ public class Admin_login extends javax.swing.JFrame {
         jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Show Password");
         jCheckBox1.setContentAreaFilled(false);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
@@ -166,7 +173,30 @@ public class Admin_login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Retrieve the username entered by the user
+    String username = UserName.getText();  // Get the username from the UserName text field
+    
+    // Retrieve the password entered by the user
+    String password = new String(jPasswordField1.getPassword());  // Get the password from jPasswordField1
+
+    // Define correct username and password (for demo purposes)
+    String correctUsername = "admin";  // Correct username (hardcoded for now)
+    String correctPassword = "admin123";  // Correct password (hardcoded for now)
+
+    // Validate the username and password
+    if (username.equals(correctUsername) && password.equals(correctPassword)) {
+        // If both username and password match, show a success message
+        JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        // You can now proceed to open the Admin Home Page or any other action you need
+        // Example: new AdminHomePage().setVisible(true);
+
+        // Close the login window (if needed)
+        this.dispose();  // Close the current login window
+    } else {
+        // If username or password is incorrect, show an error message
+        JOptionPane.showMessageDialog(this, "Username or Password is not valid. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameActionPerformed
@@ -203,6 +233,17 @@ public class Admin_login extends javax.swing.JFrame {
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
       dispose();
     }//GEN-LAST:event_exitActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+         // Check if the checkbox is selected
+    if (jCheckBox1.isSelected()) {
+        // If selected, show the password (remove echo character)
+        jPasswordField1.setEchoChar((char) 0);  // Show password as plain text
+    } else {
+        // If not selected, hide the password (set echo character back to asterisk)
+        jPasswordField1.setEchoChar('*'); // Hide password using asterisk
+    }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
