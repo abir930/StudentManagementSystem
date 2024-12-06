@@ -35,7 +35,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -82,18 +82,18 @@ public class Admin_Home extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<String>();
-        jComboBox6 = new javax.swing.JComboBox<String>();
-        jComboBox7 = new javax.swing.JComboBox<String>();
-        jComboBox8 = new javax.swing.JComboBox<String>();
-        jComboBox9 = new javax.swing.JComboBox<String>();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox9 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jTextField12 = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -173,13 +173,15 @@ public class Admin_Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("STUDENT MANAGMENT BY ADMIN");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -203,7 +205,7 @@ public class Admin_Home extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 102));
 
-        jPanel4.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -216,7 +218,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
 
         jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
@@ -265,7 +267,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel11.setText("Address Line 2");
 
-        jPanel6.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel6.setBackground(new java.awt.Color(0, 102, 102));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
@@ -296,9 +298,12 @@ public class Admin_Home extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)))
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -309,12 +314,11 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                        .addGap(115, 115, 115)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -338,16 +342,17 @@ public class Admin_Home extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8)))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 260, Short.MAX_VALUE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1))
+                        .addGap(17, 17, 17))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,10 +400,10 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
-        jPanel8.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel8.setBackground(new java.awt.Color(153, 153, 153));
         jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 0), 2, true));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -446,7 +451,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel9.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel9.setBackground(new java.awt.Color(153, 153, 153));
         jPanel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 4, true));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -477,14 +482,14 @@ public class Admin_Home extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addGap(0, 68, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
         );
 
-        jPanel10.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel10.setBackground(new java.awt.Color(0, 51, 51));
         jPanel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 4, true));
 
         jButton4.setBackground(new java.awt.Color(255, 0, 153));
@@ -610,7 +615,7 @@ public class Admin_Home extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(255, 153, 102));
 
-        jPanel12.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel12.setBackground(new java.awt.Color(0, 51, 51));
         jPanel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
         jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -621,9 +626,10 @@ public class Admin_Home extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("ID");
 
-        jPanel13.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel13.setBackground(new java.awt.Color(0, 51, 51));
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 102), 4, true));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -665,19 +671,20 @@ public class Admin_Home extends javax.swing.JFrame {
         );
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Student's ID");
 
         jComboBox5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "C  Programming", "C++  Programming", "Data Structure And Algorithms", "Java ", "Phython", "Mathematics 1", "English Spoken", "Bio Chemistry", " ", " " }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C  Programming", "C++  Programming", "Data Structure And Algorithms", "Java ", "Phython", "Mathematics 1", "English Spoken", "Bio Chemistry", " ", " " }));
 
         jComboBox6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mathematics 2", "English Listening & Writing", "Java OOP", "Web Programming", "Design User Interface", "Data Comunications", "Theoury of Computation", " " }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mathematics 2", "English Listening & Writing", "Java OOP", "Web Programming", "Design User Interface", "Data Comunications", "Theoury of Computation", " " }));
 
         jComboBox7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Compile Design", "Computer fundamental", "Physics 1", "Engineering Mathmetics", "Numerical Mathematics", "Physics 2", "Software testing", " " }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compile Design", "Computer fundamental", "Physics 1", "Engineering Mathmetics", "Numerical Mathematics", "Physics 2", "Software testing", " " }));
 
         jComboBox8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Digital Logic Design", "Data Science", "Electronic Device", "Electrical Circuits", "Arts of Living", "Bangladesh Study", "Data Structure", " " }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Digital Logic Design", "Data Science", "Electronic Device", "Electrical Circuits", "Arts of Living", "Bangladesh Study", "Data Structure", " " }));
 
         jComboBox9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jComboBox9.addActionListener(new java.awt.event.ActionListener() {
@@ -687,25 +694,31 @@ public class Admin_Home extends javax.swing.JFrame {
         });
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Semester");
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Course1");
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Course2");
 
         jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Course3");
 
         jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Course4");
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Course5");
 
         jComboBox2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Computer Networking", "Artificial Intelligence", "Graphic's design", "Discreet Mathmatics", "App Development", "Computer Arcitecture", "Data Analaysis", "Informational Techonology", " ", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Networking", "Artificial Intelligence", "Graphic's design", "Discreet Mathmatics", "App Development", "Computer Arcitecture", "Data Analaysis", "Informational Techonology", " ", " " }));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -729,9 +742,9 @@ public class Admin_Home extends javax.swing.JFrame {
                             .addComponent(jComboBox9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox6, 0, 1, Short.MAX_VALUE)
                             .addComponent(jComboBox5, 0, 1, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, 0, 0, Short.MAX_VALUE)
                             .addComponent(jTextField12)
                             .addComponent(jTextField9)))
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -740,7 +753,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -776,13 +789,14 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel15.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel15.setBackground(new java.awt.Color(51, 51, 51));
         jPanel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
-        jPanel16.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel16.setBackground(new java.awt.Color(51, 0, 51));
         jPanel16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 102), 2, true));
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Search Sudent");
 
         searchField1.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -860,7 +874,7 @@ public class Admin_Home extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
         );
 
-        jPanel18.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel18.setBackground(new java.awt.Color(51, 51, 51));
         jPanel18.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 4, true));
 
         jButton13.setBackground(new java.awt.Color(255, 0, 153));
@@ -963,34 +977,42 @@ public class Admin_Home extends javax.swing.JFrame {
 
         jPanel19.setBackground(new java.awt.Color(255, 153, 102));
 
-        jPanel20.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel20.setBackground(new java.awt.Color(0, 51, 51));
         jPanel20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Semester");
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Course1");
 
         jLabel50.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
         jLabel50.setText("Course2");
 
         jLabel51.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Course3");
 
         jLabel52.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("Student's ID");
 
         jLabel53.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("Course4");
 
         jLabel54.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setText("Course5");
 
-        jPanel14.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel14.setBackground(new java.awt.Color(0, 51, 51));
         jPanel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 102), 4, true));
 
         jLabel55.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setText("Student's ID");
 
         jTextField11.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -1000,6 +1022,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jButton14.setText("Search");
 
         jLabel26.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Semester");
 
         jTextField15.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -1046,6 +1069,7 @@ public class Admin_Home extends javax.swing.JFrame {
         );
 
         jLabel56.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(255, 255, 255));
         jLabel56.setText("ID");
 
         jTextField14.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -1187,13 +1211,14 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addContainerGap(312, Short.MAX_VALUE))
         );
 
-        jPanel23.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel23.setBackground(new java.awt.Color(51, 51, 51));
         jPanel23.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
-        jPanel24.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel24.setBackground(new java.awt.Color(51, 0, 51));
         jPanel24.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 0), 2, true));
 
         jLabel37.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Search Sudent");
 
         searchField2.addActionListener(new java.awt.event.ActionListener() {
@@ -1273,7 +1298,7 @@ public class Admin_Home extends javax.swing.JFrame {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        jPanel26.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel26.setBackground(new java.awt.Color(51, 51, 51));
         jPanel26.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 4, true));
 
         jButton22.setBackground(new java.awt.Color(255, 0, 153));
@@ -1385,13 +1410,14 @@ public class Admin_Home extends javax.swing.JFrame {
 
         jPanel27.setBackground(new java.awt.Color(255, 153, 102));
 
-        jPanel28.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel28.setBackground(new java.awt.Color(0, 51, 51));
         jPanel28.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
-        jPanel21.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel21.setBackground(new java.awt.Color(51, 0, 51));
         jPanel21.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 102), 4, true));
 
         jLabel27.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Student's ID");
 
         jTextField25.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -1410,7 +1436,7 @@ public class Admin_Home extends javax.swing.JFrame {
                     .addComponent(jLabel27)
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jButton15)))
                 .addGap(25, 25, 25))
         );
@@ -1423,10 +1449,10 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField25))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanel22.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel22.setBackground(new java.awt.Color(255, 153, 153));
         jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 0), 4));
 
         jLabel28.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
@@ -1465,13 +1491,13 @@ public class Admin_Home extends javax.swing.JFrame {
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel31.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel31.setBackground(new java.awt.Color(51, 51, 51));
         jPanel31.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 51), 4, true));
 
         jPanel33.setBackground(new java.awt.Color(102, 255, 102));
@@ -1507,7 +1533,7 @@ public class Admin_Home extends javax.swing.JFrame {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
         );
 
-        jPanel34.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel34.setBackground(new java.awt.Color(51, 51, 51));
         jPanel34.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 4, true));
 
         jButton34.setBackground(new java.awt.Color(255, 51, 153));
@@ -1581,7 +1607,7 @@ public class Admin_Home extends javax.swing.JFrame {
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
