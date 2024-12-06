@@ -815,7 +815,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="logout" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="26" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -829,7 +829,7 @@
                                       <Component id="jButton6" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton7" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton8" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="logout" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -899,7 +899,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton9">
+                        <Component class="javax.swing.JButton" name="logout">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="99" green="0" red="ff" type="rgb"/>
@@ -910,7 +910,7 @@
                             <Property name="text" type="java.lang.String" value="Logout"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -1632,7 +1632,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton17" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton18" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="logout2" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace pref="239" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1644,7 +1644,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jButton16" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton17" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jButton18" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="logout2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton13" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -1692,7 +1692,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton17ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton18">
+                        <Component class="javax.swing.JButton" name="logout2">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="99" green="0" red="ff" type="rgb"/>
@@ -1702,6 +1702,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Logout"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logout2ActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -2479,7 +2482,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton26" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jButton27" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="logout3" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace pref="158" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -2492,7 +2495,7 @@
                                       <Component id="jButton23" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton25" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton26" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jButton27" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="logout3" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton22" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -2551,7 +2554,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton26ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton27">
+                        <Component class="javax.swing.JButton" name="logout3">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="99" green="0" red="ff" type="rgb"/>
@@ -2561,6 +2564,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Logout"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logout3ActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -2967,7 +2973,7 @@
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="jButton35" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jButton36" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="logout4" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace pref="427" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -2979,7 +2985,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jButton34" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton35" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jButton36" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="logout4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               </Group>
@@ -3015,7 +3021,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton35ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton36">
+                        <Component class="javax.swing.JButton" name="logout4">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="99" green="0" red="ff" type="rgb"/>
@@ -3025,6 +3031,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Logout"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logout4ActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

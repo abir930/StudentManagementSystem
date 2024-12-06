@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package Home;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -72,7 +71,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
@@ -108,7 +107,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        logout2 = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -153,7 +152,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jButton23 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
+        logout3 = new javax.swing.JButton();
         jPanel27 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
@@ -169,7 +168,7 @@ public class Admin_Home extends javax.swing.JFrame {
         jPanel34 = new javax.swing.JPanel();
         jButton34 = new javax.swing.JButton();
         jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
+        logout4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -522,12 +521,12 @@ public class Admin_Home extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(255, 0, 153));
-        jButton9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton9.setText("Logout");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        logout.setBackground(new java.awt.Color(255, 0, 153));
+        logout.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                logoutActionPerformed(evt);
             }
         });
 
@@ -547,7 +546,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9)
+                .addComponent(logout)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -559,7 +558,7 @@ public class Admin_Home extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9)
+                    .addComponent(logout)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -899,9 +898,14 @@ public class Admin_Home extends javax.swing.JFrame {
             }
         });
 
-        jButton18.setBackground(new java.awt.Color(255, 0, 153));
-        jButton18.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton18.setText("Logout");
+        logout2.setBackground(new java.awt.Color(255, 0, 153));
+        logout2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        logout2.setText("Logout");
+        logout2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -915,7 +919,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logout2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(239, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
@@ -925,7 +929,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logout2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -1327,9 +1331,14 @@ public class Admin_Home extends javax.swing.JFrame {
             }
         });
 
-        jButton27.setBackground(new java.awt.Color(255, 0, 153));
-        jButton27.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton27.setText("Logout");
+        logout3.setBackground(new java.awt.Color(255, 0, 153));
+        logout3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        logout3.setText("Logout");
+        logout3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -1345,7 +1354,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logout3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
@@ -1356,7 +1365,7 @@ public class Admin_Home extends javax.swing.JFrame {
                     .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logout3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -1554,9 +1563,14 @@ public class Admin_Home extends javax.swing.JFrame {
             }
         });
 
-        jButton36.setBackground(new java.awt.Color(255, 0, 153));
-        jButton36.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton36.setText("Logout");
+        logout4.setBackground(new java.awt.Color(255, 0, 153));
+        logout4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        logout4.setText("Logout");
+        logout4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
         jPanel34.setLayout(jPanel34Layout);
@@ -1568,7 +1582,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logout4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(427, Short.MAX_VALUE))
         );
         jPanel34Layout.setVerticalGroup(
@@ -1578,7 +1592,7 @@ public class Admin_Home extends javax.swing.JFrame {
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logout4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -1730,9 +1744,46 @@ public class Admin_Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+        
+        int a= JOptionPane.showConfirmDialog(this,"Do you want to logout now?", "Select", JOptionPane. YES_NO_OPTION);
+        if(a==0)
+        {
+            this.dispose();
+            new First_page().setVisible(true);
+        }
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void logout4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout4ActionPerformed
+        // TODO add your handling code here:
+        int a= JOptionPane.showConfirmDialog(this,"Do you want to logout now?", "Select", JOptionPane. YES_NO_OPTION);
+        if(a==0)
+        {
+            this.dispose();
+            new First_page().setVisible(true);
+        }
+    }//GEN-LAST:event_logout4ActionPerformed
+
+    private void logout2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout2ActionPerformed
+        // TODO add your handling code here:
+        int a= JOptionPane.showConfirmDialog(this,"Do you want to logout now?", "Select", JOptionPane. YES_NO_OPTION);
+        if(a==0)
+        {
+            this.dispose();
+            new First_page().setVisible(true);
+        }
+    }//GEN-LAST:event_logout2ActionPerformed
+
+    private void logout3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout3ActionPerformed
+        // TODO add your handling code here:
+        int a= JOptionPane.showConfirmDialog(this,"Do you want to logout now?", "Select", JOptionPane. YES_NO_OPTION);
+        if(a==0)
+        {
+            this.dispose();
+            new First_page().setVisible(true);
+        }
+    }//GEN-LAST:event_logout3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1780,7 +1831,6 @@ public class Admin_Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
@@ -1788,17 +1838,14 @@ public class Admin_Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -1911,6 +1958,10 @@ public class Admin_Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton logout2;
+    private javax.swing.JButton logout3;
+    private javax.swing.JButton logout4;
     private javax.swing.JTextField searchField;
     private javax.swing.JTextField searchField1;
     private javax.swing.JTextField searchField2;
