@@ -1,7 +1,14 @@
 
 package Home;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import
+ java.sql.DriverManager;
 
 public final class First_page extends javax.swing.JFrame {
 
@@ -201,7 +208,7 @@ public final class First_page extends javax.swing.JFrame {
         jLabel13.setText("Password");
         jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 140, -1));
 
-        password.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        password.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -209,7 +216,7 @@ public final class First_page extends javax.swing.JFrame {
         });
         jPanel9.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 310, 40));
 
-        username.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        username.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -221,15 +228,30 @@ public final class First_page extends javax.swing.JFrame {
         show_password.setForeground(new java.awt.Color(255, 255, 255));
         show_password.setText("Show password");
         show_password.setContentAreaFilled(false);
+        show_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_passwordActionPerformed(evt);
+            }
+        });
         jPanel9.add(show_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, -1));
 
         exit_btn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         exit_btn.setText("Exit");
+        exit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_btnActionPerformed(evt);
+            }
+        });
         jPanel9.add(exit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 350, 80, -1));
 
         submit_btn.setBackground(new java.awt.Color(0, 102, 102));
         submit_btn.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
         submit_btn.setText("Submit");
+        submit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit_btnActionPerformed(evt);
+            }
+        });
         jPanel9.add(submit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 130, 40));
 
         jLabel10.setForeground(new java.awt.Color(255, 111, 102));
@@ -275,6 +297,67 @@ public final class First_page extends javax.swing.JFrame {
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
+
+    private void exit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_btnActionPerformed
+        // TODO add your handling code here:
+        int a= JOptionPane.showConfirmDialog(this,"Do you want to exit?", "Select", JOptionPane. YES_NO_OPTION);
+        if(a==0)
+        {
+            this.dispose();
+            new First_page().setVisible(true);
+        }
+    }//GEN-LAST:event_exit_btnActionPerformed
+
+    private void show_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_passwordActionPerformed
+        // TODO add your handling code here:                                               
+    if (show_password.isSelected()) {
+        password.setEchoChar((char) 0); // Show password
+    } else {
+        password.setEchoChar('*'); // Hide password
+    }     
+    }//GEN-LAST:event_show_passwordActionPerformed
+
+    
+    private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
+        // TODO add your handling code here:
+          /** try {
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "#109755288410Abir");
+    
+    String username = editUsername.getText();
+    char[] passwordArray = editPassword.getPassword();
+    String password = new String(passwordArray);
+    
+    // Use PreparedStatement to prevent SQL injection
+    String sql = "SELECT * FROM login WHERE username=? AND password=?";
+    PreparedStatement pstmt = con.prepareStatement(sql);
+    pstmt.setString(1, username);
+    pstmt.setString(2, password);
+    ResultSet rs = pstmt.executeQuery();
+    
+    if (rs.next()) {
+        dispose();
+        Admin_Home hpage = new Admin_Home();
+        hpage.show();
+    } else {
+        JOptionPane.showMessageDialog(this, "Wrong username or password...");
+        editUsername.setText("");
+        editPassword.setText("");
+    }
+    
+    rs.close();
+    pstmt.close();
+    con.close();
+} catch (Exception e) {
+    e.printStackTrace(); // Helps to identify errors
+    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+}
+                                     
+    
+
+
+**/
+    }//GEN-LAST:event_submit_btnActionPerformed
 
     
 

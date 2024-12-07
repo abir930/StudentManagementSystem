@@ -1770,7 +1770,7 @@ public class Admin_Home extends javax.swing.JFrame {
         int a= JOptionPane.showConfirmDialog(this,"Do you want to logout now?", "Select", JOptionPane. YES_NO_OPTION);
         if(a==0)
         {
-            this.dispose();
+            //this.dispose();
             new First_page().setVisible(true);
         }
     }//GEN-LAST:event_logout2ActionPerformed
