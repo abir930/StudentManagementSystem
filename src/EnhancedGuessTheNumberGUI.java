@@ -24,7 +24,7 @@ public class EnhancedGuessTheNumberGUI {
     private void setupGame() {
         final JFrame frame = new JFrame("Enhanced Guess the Number Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(400, 400);
 
         // Main panel
         JPanel panel = new JPanel();
@@ -51,7 +51,16 @@ public class EnhancedGuessTheNumberGUI {
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(startButton);
 
-        // Feedback label
+        // Input and Feedback
+        final JTextField guessInput = new JTextField(10);
+        guessInput.setMaximumSize(new Dimension(200, 30));
+        guessInput.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(guessInput);
+
+        final JButton submitGuessButton = new JButton("Submit Guess");
+        submitGuessButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(submitGuessButton);
+
         final JLabel feedbackLabel = new JLabel(" ");
         feedbackLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(feedbackLabel);
@@ -107,6 +116,40 @@ public class EnhancedGuessTheNumberGUI {
             feedbackLabel.setText("Game started! Guess a number between 1 and " + maxRange + ".");
             startButton.setEnabled(false);
             difficultyBox.setEnabled(false);
+            guessInput.setEnabled(true);
+            submitGuessButton.setEnabled(true);
+        });
+
+        submitGuessButton.addActionListener(e -> {
+            if (attempts >= maxAttempts) {
+                feedbackLabel.setText("You've reached the max attempts. Game Over!");
+                return;
+            }
+
+            String guessText = guessInput.getText();
+            try {
+                int guess = Integer.parseInt(guessText);
+                attempts++;
+                if (guess == targetNumber) {
+                    feedbackLabel.setText("Correct! You guessed the number in " + attempts + " attempts.");
+                    totalGames++;
+                    totalAttempts += attempts;
+                    gameHistory.add("Game " + totalGames + ": " + attempts + " attempts");
+                    leaderboard.offer(attempts);
+                    if (leaderboard.size() > 3) leaderboard.poll();
+                    startButton.setEnabled(true);
+                    difficultyBox.setEnabled(true);
+                    guessInput.setEnabled(false);
+                    submitGuessButton.setEnabled(false);
+                } else if (guess < targetNumber) {
+                    feedbackLabel.setText("Too low! Try again.");
+                } else {
+                    feedbackLabel.setText("Too high! Try again.");
+                }
+            } catch (NumberFormatException ex) {
+                feedbackLabel.setText("Invalid input. Please enter a number.");
+            }
+            guessInput.setText("");
         });
 
         resetButton.addActionListener(e -> {
@@ -143,9 +186,5 @@ public class EnhancedGuessTheNumberGUI {
         SwingUtilities.invokeLater(EnhancedGuessTheNumberGUI::new);
     }
 }
-
-
-
-
 
 
