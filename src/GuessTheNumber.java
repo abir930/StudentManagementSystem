@@ -4,12 +4,14 @@ public class GuessTheNumber {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             boolean playAgain;
+            int totalGames = 0;
+            int totalAttempts = 0;
 
             System.out.println("Welcome to the enhanced 'Guess the Number' game!");
 
             do {
                 // Select difficulty level
-                System.out.println("Select a difficulty level:");
+                System.out.println("\nSelect a difficulty level:");
                 System.out.println("1. Easy (1-50, unlimited attempts)");
                 System.out.println("2. Medium (1-100, unlimited attempts)");
                 System.out.println("3. Hard (1-100, 10 attempts)");
@@ -17,7 +19,22 @@ public class GuessTheNumber {
                 int maxRange = 100;
                 int maxAttempts = Integer.MAX_VALUE;
                 System.out.print("Enter your choice (1, 2, or 3): ");
-                int difficulty = scanner.nextInt();
+                int difficulty = 0;
+
+                // Validate difficulty input
+                while (true) {
+                    if (scanner.hasNextInt()) {
+                        difficulty = scanner.nextInt();
+                        if (difficulty >= 1 && difficulty <= 3) {
+                            break;
+                        } else {
+                            System.out.print("Invalid choice! Please enter 1, 2, or 3: ");
+                        }
+                    } else {
+                        System.out.print("Invalid input! Please enter a number (1, 2, or 3): ");
+                        scanner.next(); // Clear invalid input
+                    }
+                }
 
                 switch (difficulty) {
                     case 1:
@@ -32,10 +49,6 @@ public class GuessTheNumber {
                         maxRange = 100;
                         maxAttempts = 10;
                         System.out.println("You chose Hard mode!");
-                        break;
-                    default:
-                        System.out.println("Invalid choice! Defaulting to Medium mode.");
-                        maxRange = 100;
                         break;
                 }
 
@@ -52,18 +65,18 @@ public class GuessTheNumber {
                 while (guess != targetNumber && attempts < maxAttempts) {
                     validInput = false;
 
-                    // Validate input
+                    // Validate guess input
                     while (!validInput) {
                         System.out.print("Enter your guess: ");
                         if (scanner.hasNextInt()) {
                             guess = scanner.nextInt();
-                            if (guess < 1 || guess > maxRange) {
-                                System.out.println("Please enter a number between 1 and " + maxRange + ".");
-                            } else {
+                            if (guess >= 1 && guess <= maxRange) {
                                 validInput = true;
+                            } else {
+                                System.out.println("Please enter a number between 1 and " + maxRange + ".");
                             }
                         } else {
-                            System.out.println("Invalid input! Please enter a number.");
+                            System.out.println("Invalid input! Please enter a valid number.");
                             scanner.next(); // Clear invalid input
                         }
                     }
@@ -83,14 +96,26 @@ public class GuessTheNumber {
                     }
                 }
 
+                // Update statistics
+                totalGames++;
+                totalAttempts += attempts;
+
                 // Ask if the player wants to play again
                 System.out.print("Do you want to play again? (yes/no): ");
                 playAgain = scanner.next().equalsIgnoreCase("yes");
 
             } while (playAgain);
 
+            // Display statistics
+            System.out.println("\nGame Statistics:");
+            System.out.println("Total games played: " + totalGames);
+            if (totalGames > 0) {
+                System.out.println("Average attempts per game: " + (double) totalAttempts / totalGames);
+            }
+
             System.out.println("Thanks for playing! Goodbye.");
         }
     }
 }
+
 
