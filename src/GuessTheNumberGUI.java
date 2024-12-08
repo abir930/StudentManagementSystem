@@ -108,7 +108,16 @@ public class GuessTheNumberGUI {
 
                     attempts++;
 
-                  
+                    if (guess < targetNumber) {
+                        feedbackLabel.setText("Too low! Try again.");
+                    } else if (guess > targetNumber) {
+                        feedbackLabel.setText("Too high! Try again.");
+                    } else {
+                        feedbackLabel.setText("Congratulations! You guessed the number in " + attempts + " attempts.");
+                        totalGames++;
+                        totalAttempts += attempts;
+                        endGame(frame);
+                    }
 
                     if (attempts >= maxAttempts && guess != targetNumber) {
                         feedbackLabel.setText("Out of attempts! The number was: " + targetNumber);
@@ -126,15 +135,7 @@ public class GuessTheNumberGUI {
     private void endGame(JFrame frame) {
         int response = JOptionPane.showConfirmDialog(frame, "Play again?", "Game Over", JOptionPane.YES_NO_OPTION);
 
-        if (response == JOptionPane.YES_OPTION) {
-            setupGame();
-            frame.dispose();
-        } else {
-            JOptionPane.showMessageDialog(frame,
-                    "Thank you for playing!\nTotal games: " + totalGames +
-                            "\nAverage attempts: " + (totalGames > 0 ? (double) totalAttempts / totalGames : 0));
-            System.exit(0);
-        }
+      
     }
 
     public static void main(String[] args) {
