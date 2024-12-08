@@ -19,7 +19,25 @@ public class GuessTheNumber {
                 System.out.print("Enter your choice (1, 2, or 3): ");
                 int difficulty = scanner.nextInt();
 
-               
+                switch (difficulty) {
+                    case 1:
+                        maxRange = 50;
+                        System.out.println("You chose Easy mode!");
+                        break;
+                    case 2:
+                        maxRange = 100;
+                        System.out.println("You chose Medium mode!");
+                        break;
+                    case 3:
+                        maxRange = 100;
+                        maxAttempts = 10;
+                        System.out.println("You chose Hard mode!");
+                        break;
+                    default:
+                        System.out.println("Invalid choice! Defaulting to Medium mode.");
+                        maxRange = 100;
+                        break;
+                }
 
                 // Generate the target number
                 int targetNumber = (int) (Math.random() * maxRange) + 1;
