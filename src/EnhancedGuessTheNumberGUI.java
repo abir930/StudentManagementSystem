@@ -2,25 +2,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class GuessTheNumberGUI {
+public class EnhancedGuessTheNumberGUI {
     private int targetNumber;
     private int maxRange;
     private int maxAttempts;
     private int attempts;
     private int totalGames;
     private int totalAttempts;
+    private final ArrayList<String> gameHistory;
 
-    public GuessTheNumberGUI() {
+    public EnhancedGuessTheNumberGUI() {
         totalGames = 0;
         totalAttempts = 0;
+        gameHistory = new ArrayList<>();
         setupGame();
     }
 
     private void setupGame() {
-        JFrame frame = new JFrame("Guess the Number Game");
+        JFrame frame = new JFrame("Enhanced Guess the Number Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(450, 350);
 
         // Create components
         JPanel panel = new JPanel();
@@ -34,7 +37,9 @@ public class GuessTheNumberGUI {
         difficultyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(difficultyLabel);
 
-        JComboBox<String> difficultyBox = new JComboBox<>(new String[]{"Easy (1-50)", "Medium (1-100)", "Hard (1-100, 10 attempts)"});
+        JComboBox<String> difficultyBox = new JComboBox<>(new String[]{
+                "Easy (1-50)", "Medium (1-100)", "Hard (1-100, 10 attempts)"
+        });
         difficultyBox.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(difficultyBox);
 
@@ -61,6 +66,14 @@ public class GuessTheNumberGUI {
         JLabel feedbackLabel = new JLabel(" ");
         feedbackLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(feedbackLabel);
+
+        JButton resetButton = new JButton("Reset Statistics");
+        resetButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(resetButton);
+
+        JButton historyButton = new JButton("View Game History");
+        historyButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(historyButton);
 
         frame.add(panel);
         frame.setVisible(true);
@@ -114,6 +127,7 @@ public class GuessTheNumberGUI {
                         feedbackLabel.setText("Too high! Try again.");
                     } else {
                         feedbackLabel.setText("Congratulations! You guessed the number in " + attempts + " attempts.");
+                        recordGameHistory("Won", attempts);
                         totalGames++;
                         totalAttempts += attempts;
                         endGame(frame);
@@ -121,6 +135,7 @@ public class GuessTheNumberGUI {
 
                     if (attempts >= maxAttempts && guess != targetNumber) {
                         feedbackLabel.setText("Out of attempts! The number was: " + targetNumber);
+                        recordGameHistory("Lost", attempts);
                         totalGames++;
                         totalAttempts += attempts;
                         endGame(frame);
@@ -129,6 +144,21 @@ public class GuessTheNumberGUI {
                     feedbackLabel.setText("Please enter a valid number.");
                 }
             }
+        });
+
+        resetButton.addActionListener(e -> {
+            totalGames = 0;
+            totalAttempts = 0;
+            gameHistory.clear();
+            JOptionPane.showMessageDialog(frame, "Statistics have been reset.");
+        });
+
+        historyButton.addActionListener(e -> {
+            StringBuilder history = new StringBuilder("Game History:\n");
+            for (String record : gameHistory) {
+                history.append(record).append("\n");
+            }
+            JOptionPane.showMessageDialog(frame, history.length() > 0 ? history.toString() : "No games played yet.");
         });
     }
 
@@ -146,10 +176,15 @@ public class GuessTheNumberGUI {
         }
     }
 
+    private void recordGameHistory(String result, int attempts) {
+        gameHistory.add("Game " + (totalGames + 1) + ": " + result + " in " + attempts + " attempts.");
+    }
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(GuessTheNumberGUI::new);
+        SwingUtilities.invokeLater(EnhancedGuessTheNumberGUI::new);
     }
 }
+
 
 
 
