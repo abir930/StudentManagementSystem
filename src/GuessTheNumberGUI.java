@@ -135,7 +135,15 @@ public class GuessTheNumberGUI {
     private void endGame(JFrame frame) {
         int response = JOptionPane.showConfirmDialog(frame, "Play again?", "Game Over", JOptionPane.YES_NO_OPTION);
 
-      
+        if (response == JOptionPane.YES_OPTION) {
+            setupGame();
+            frame.dispose();
+        } else {
+            JOptionPane.showMessageDialog(frame,
+                    "Thank you for playing!\nTotal games: " + totalGames +
+                            "\nAverage attempts: " + (totalGames > 0 ? (double) totalAttempts / totalGames : 0));
+            System.exit(0);
+        }
     }
 
     public static void main(String[] args) {
