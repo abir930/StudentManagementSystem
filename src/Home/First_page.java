@@ -320,43 +320,47 @@ public final class First_page extends javax.swing.JFrame {
     
     private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
         // TODO add your handling code here:
-          /** try {
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "#109755288410Abir");
-    
-    String username = editUsername.getText();
-    char[] passwordArray = editPassword.getPassword();
-    String password = new String(passwordArray);
-    
-    // Use PreparedStatement to prevent SQL injection
-    String sql = "SELECT * FROM login WHERE username=? AND password=?";
-    PreparedStatement pstmt = con.prepareStatement(sql);
-    pstmt.setString(1, username);
-    pstmt.setString(2, password);
-    ResultSet rs = pstmt.executeQuery();
-    
-    if (rs.next()) {
-        dispose();
-        Admin_Home hpage = new Admin_Home();
-        hpage.show();
-    } else {
-        JOptionPane.showMessageDialog(this, "Wrong username or password...");
-        editUsername.setText("");
-        editPassword.setText("");
+        
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb_sms?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "#109755288410Abir");
+        
+        String username = editUsername.getText();
+        char[] passwordArray = editPassword.getPassword();
+        String password = new String(passwordArray);
+        
+        // Use PreparedStatement to prevent SQL injection
+        String sql = "SELECT * FROM table WHERE username=? AND password=?";
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, username);
+        pstmt.setString(2, password);
+        ResultSet rs = pstmt.executeQuery();
+        
+        if (rs.next()) {
+            dispose();
+            Admin_Home hpage = new Admin_Home();
+            hpage.show();
+        } else {
+            JOptionPane.showMessageDialog(this, "Wrong username or password...");
+            editUsername.setText("");
+            editPassword.setText("");
+        }
+        
+        rs.close();
+        pstmt.close();
+        con.close();
+    } catch (Exception e) {
+        e.printStackTrace(); // Helps to identify errors
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
     }
+
+
     
-    rs.close();
-    pstmt.close();
-    con.close();
-} catch (Exception e) {
-    e.printStackTrace(); // Helps to identify errors
-    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-}
                                      
     
 
 
-**/
+
     }//GEN-LAST:event_submit_btnActionPerformed
 
     
