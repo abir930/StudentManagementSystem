@@ -22,66 +22,94 @@ public class EnhancedGuessTheNumberGUI {
     }
 
     private void setupGame() {
+        // Main Frame
         final JFrame frame = new JFrame("Enhanced Guess the Number Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
+        frame.setSize(500, 600);
+        frame.setLayout(new BorderLayout());
 
-        // Main panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        frame.add(panel);
+        // Title Panel
+        JPanel titlePanel = new JPanel();
+        titlePanel.setBackground(new Color(0x4CAF50));
+        JLabel titleLabel = new JLabel("🎉 Guess the Number 🎉");
+        titleLabel.setFont(new Font("Verdana", Font.BOLD, 24));
+        titleLabel.setForeground(Color.WHITE);
+        titlePanel.add(titleLabel);
+        frame.add(titlePanel, BorderLayout.NORTH);
 
-        // Title label
-        JLabel instructionsLabel = new JLabel("Welcome to 'Guess the Number'!");
+        // Main Panel
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setBackground(new Color(0xE8F5E9));
+        frame.add(mainPanel, BorderLayout.CENTER);
+
+        // Instructions
+        JLabel instructionsLabel = new JLabel("Welcome! Select a difficulty level to start.");
+        instructionsLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         instructionsLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(instructionsLabel);
+        mainPanel.add(instructionsLabel);
 
         JLabel difficultyLabel = new JLabel("Select Difficulty:");
+        difficultyLabel.setFont(new Font("Arial", Font.BOLD, 14));
         difficultyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(difficultyLabel);
+        mainPanel.add(difficultyLabel);
 
-        // Difficulty selection
+        // Difficulty ComboBox
         final JComboBox<String> difficultyBox = new JComboBox<>(new String[]{
                 "Easy (1-50)", "Medium (1-100)", "Hard (1-100, 10 attempts)", "Custom"
         });
         difficultyBox.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(difficultyBox);
+        mainPanel.add(difficultyBox);
 
+        // Start Button
         final JButton startButton = new JButton("Start Game");
-        startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(startButton);
+        styleButton(startButton);
+        mainPanel.add(startButton);
 
-        // Input and Feedback
+        // Guess Input
         final JTextField guessInput = new JTextField(10);
         guessInput.setMaximumSize(new Dimension(200, 30));
         guessInput.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(guessInput);
+        guessInput.setEnabled(false);
+        mainPanel.add(guessInput);
 
+        // Submit Button
         final JButton submitGuessButton = new JButton("Submit Guess");
-        submitGuessButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(submitGuessButton);
+        styleButton(submitGuessButton);
+        submitGuessButton.setEnabled(false);
+        mainPanel.add(submitGuessButton);
 
+        // Feedback Label
         final JLabel feedbackLabel = new JLabel(" ");
+        feedbackLabel.setFont(new Font("Arial", Font.ITALIC, 14));
+        feedbackLabel.setForeground(Color.BLUE);
         feedbackLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(feedbackLabel);
+        mainPanel.add(feedbackLabel);
 
-        // Buttons in a single row
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        JButton resetButton = new JButton("Reset Statistics");
-        JButton historyButton = new JButton("View Game History");
-        JButton leaderboardButton = new JButton("View Leaderboard");
-        JButton quitButton = new JButton("Quit Game");
+        // Stats Panel
+        JPanel statsPanel = new JPanel();
+        statsPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        statsPanel.setBackground(new Color(0xA5D6A7));
+        JButton resetButton = new JButton("Reset Stats");
+        JButton historyButton = new JButton("Game History");
+        JButton leaderboardButton = new JButton("Leaderboard");
+        JButton quitButton = new JButton("Quit");
 
-        buttonPanel.add(resetButton);
-        buttonPanel.add(historyButton);
-        buttonPanel.add(leaderboardButton);
-        buttonPanel.add(quitButton);
-        panel.add(buttonPanel);
+        styleButton(resetButton);
+        styleButton(historyButton);
+        styleButton(leaderboardButton);
+        styleButton(quitButton);
 
+        statsPanel.add(resetButton);
+        statsPanel.add(historyButton);
+        statsPanel.add(leaderboardButton);
+        statsPanel.add(quitButton);
+        frame.add(statsPanel, BorderLayout.SOUTH);
+
+        // Visibility
         frame.setVisible(true);
 
-        // Event listeners
+        // Event Listeners
         startButton.addActionListener(e -> {
             String difficulty = (String) difficultyBox.getSelectedItem();
             if ("Custom".equals(difficulty)) {
@@ -125,22 +153,18 @@ public class EnhancedGuessTheNumberGUI {
                 feedbackLabel.setText("You've reached the max attempts. Game Over!");
                 return;
             }
-
             String guessText = guessInput.getText();
             try {
                 int guess = Integer.parseInt(guessText);
                 attempts++;
                 if (guess == targetNumber) {
-                    feedbackLabel.setText("Correct! You guessed the number in " + attempts + " attempts.");
+                    feedbackLabel.setText("🎉 Correct! Guessed in " + attempts + " attempts.");
                     totalGames++;
                     totalAttempts += attempts;
                     gameHistory.add("Game " + totalGames + ": " + attempts + " attempts");
                     leaderboard.offer(attempts);
                     if (leaderboard.size() > 3) leaderboard.poll();
-                    startButton.setEnabled(true);
-                    difficultyBox.setEnabled(true);
-                    guessInput.setEnabled(false);
-                    submitGuessButton.setEnabled(false);
+                    resetGame(difficultyBox, guessInput, submitGuessButton, startButton);
                 } else if (guess < targetNumber) {
                     feedbackLabel.setText("Too low! Try again.");
                 } else {
@@ -157,7 +181,7 @@ public class EnhancedGuessTheNumberGUI {
             totalAttempts = 0;
             gameHistory.clear();
             leaderboard.clear();
-            JOptionPane.showMessageDialog(frame, "Statistics have been reset.");
+            JOptionPane.showMessageDialog(frame, "Statistics reset.");
         });
 
         historyButton.addActionListener(e -> {
@@ -182,9 +206,25 @@ public class EnhancedGuessTheNumberGUI {
         });
     }
 
+    private void resetGame(JComboBox<String> difficultyBox, JTextField guessInput, JButton submitGuessButton, JButton startButton) {
+        startButton.setEnabled(true);
+        difficultyBox.setEnabled(true);
+        guessInput.setEnabled(false);
+        submitGuessButton.setEnabled(false);
+    }
+
+    private void styleButton(JButton button) {
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.setBackground(new Color(0x81C784));
+        button.setForeground(Color.WHITE);
+        button.setFocusPainted(false);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(EnhancedGuessTheNumberGUI::new);
     }
 }
+
+
 
 
