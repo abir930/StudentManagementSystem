@@ -1,4 +1,4 @@
-
+package Home;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,20 +14,20 @@ public class EnhancedGuessTheNumberGUI {
     private int totalAttempts;
     private final ArrayList<String> gameHistory;
     private final PriorityQueue<Integer> leaderboard;
+    private JFrame frame;
 
     public EnhancedGuessTheNumberGUI() {
         totalGames = 0;
         totalAttempts = 0;
         gameHistory = new ArrayList<>();
         leaderboard = new PriorityQueue<>();
+        frame = new JFrame("Enhanced Guess the Number Game");
         setupGame();
     }
 
     private void setupGame() {
-        // Main Frame
-        final JFrame frame = new JFrame("Enhanced Guess the Number Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 600);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximize the frame
         frame.setLayout(new BorderLayout());
 
         // Title Panel
@@ -203,8 +203,8 @@ public class EnhancedGuessTheNumberGUI {
         });
 
         quitButton.addActionListener(e -> {
-            JOptionPane.showMessageDialog(frame, "Thanks for playing! Goodbye!");
-            System.exit(0);
+            frame.dispose(); // Close the current frame
+            new First_page().setVisible(true); // Open the First_page frame
         });
     }
 
@@ -226,11 +226,7 @@ public class EnhancedGuessTheNumberGUI {
         SwingUtilities.invokeLater(EnhancedGuessTheNumberGUI::new);
     }
 
-    void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setVisible(boolean b) {
+        frame.setVisible(b);
     }
 }
-
-
-
-

@@ -27,7 +27,7 @@ public final class First_page extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        fun = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -91,10 +91,20 @@ public final class First_page extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 111, 102));
-        jButton2.setText("Fun");
-        jButton2.setContentAreaFilled(false);
+        fun.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        fun.setForeground(new java.awt.Color(255, 111, 102));
+        fun.setText("Fun");
+        fun.setContentAreaFilled(false);
+        fun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                funMouseClicked(evt);
+            }
+        });
+        fun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,7 +118,7 @@ public final class First_page extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addComponent(jButton4)
                 .addGap(45, 45, 45)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fun, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(255, 255, 255))
@@ -126,8 +136,8 @@ public final class First_page extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4)
                             .addComponent(jButton3)
-                            .addComponent(jButton2))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                            .addComponent(fun))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1380, 120));
@@ -261,7 +271,7 @@ public final class First_page extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab3", jPanel7);
@@ -348,6 +358,16 @@ public final class First_page extends javax.swing.JFrame {
 
     }//GEN-LAST:event_submit_btnActionPerformed
 
+    private void funMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_funMouseClicked
+       
+    }//GEN-LAST:event_funMouseClicked
+
+    private void funActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new EnhancedGuessTheNumberGUI().setVisible(true);
+    }//GEN-LAST:event_funActionPerformed
+
     
 
     /**
@@ -388,8 +408,8 @@ public final class First_page extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exit_btn;
+    private javax.swing.JButton fun;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
