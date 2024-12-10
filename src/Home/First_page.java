@@ -1,14 +1,9 @@
-
+  
 package Home;
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import
- java.sql.DriverManager;
+import java.sql.*;
 
 public final class First_page extends javax.swing.JFrame {
 
@@ -322,44 +317,34 @@ public final class First_page extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     try {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb_sms?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "#109755288410Abir");
-        
-        String username = editUsername.getText();
-        char[] passwordArray = editPassword.getPassword();
-        String password = new String(passwordArray);
-        
-        // Use PreparedStatement to prevent SQL injection
-        String sql = "SELECT * FROM table WHERE username=? AND password=?";
-        PreparedStatement pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, username);
-        pstmt.setString(2, password);
-        ResultSet rs = pstmt.executeQuery();
-        
-        if (rs.next()) {
-            dispose();
-            Admin_Home hpage = new Admin_Home();
-            hpage.show();
-        } else {
-            JOptionPane.showMessageDialog(this, "Wrong username or password...");
-            editUsername.setText("");
-            editPassword.setText("");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_management?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "#109755288410Abir")) {
+            String user = username.getText();
+            String pass = password.getText();
+            
+            
+            // Use PreparedStatement to prevent SQL injection
+            String sql = "SELECT * FROM admin WHERE username=? AND password=?";
+            try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+                pstmt.setString(1, user);
+                pstmt.setString(2, pass);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        dispose();
+                        Admin_Home hpage = new Admin_Home();
+                        hpage.show();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Wrong username or password...");
+                        username.setText("");
+                        username.setText("");
+                    }
+                }
+            }
         }
-        
-        rs.close();
-        pstmt.close();
-        con.close();
-    } catch (Exception e) {
-        e.printStackTrace(); // Helps to identify errors
+    } catch (HeadlessException | ClassNotFoundException | SQLException e) { // Helps to identify errors
+        // Helps to identify errors
         JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
     }
-
-
-    
-                                     
-    
-
-
 
     }//GEN-LAST:event_submit_btnActionPerformed
 
@@ -394,6 +379,7 @@ public final class First_page extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new First_page().setVisible(true);
             }
